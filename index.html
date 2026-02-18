@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Marcello Samiandrisoa - Développeur Fullstack spécialisé en Java, NodeJS, React et Angular.">
+    <title>Marcello Samiandrisoa | Développeur Fullstack</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Disponible pour de nouveaux défis</span>
+                <h1>Marcello Samiandrisoa</h1>
+                <p>Développeur Fullstack passionné par la création d'applications web modernes, l'analyse de données et l'intelligence artificielle.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">Me contacter</a>
+                    <a href="#experience" class="btn" style="color: #fff; margin-left: 1rem;">Voir mes travaux <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <div class="section-title" data-reveal>
+            <h2>Compétences</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="skills-grid">
+            <div class="skill-card glass" data-reveal>
+                <h3><i class="fas fa-code"></i> Langages</h3>
+                <ul>
+                    <li>Java</li>
+                    <li>NodeJS</li>
+                    <li>TypeScript</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+            
+            <div class="skill-card glass" data-reveal>
+                <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
+                <ul>
+                    <li>Spring Boot</li>
+                    <li>NestJS</li>
+                    <li>React</li>
+                    <li>Angular / Django</li>
+                </ul>
+            </div>
+            
+            <div class="skill-card glass" data-reveal>
+                <h3><i class="fas fa-tools"></i> Outils & Cloud</h3>
+                <ul>
+                    <li>GCP (Google Cloud)</li>
+                    <li>Docker</li>
+                    <li>PostgreSQL</li>
+                    <li>Airflow / GitHub</li>
+                </ul>
+            </div>
+            
+            <div class="skill-card glass" data-reveal>
+                <h3><i class="fas fa-brain"></i> IA & Data</h3>
+                <ul>
+                    <li>Prophet / PyTorch</li>
+                    <li>LLM / RAG</li>
+                    <li>Pipelines ETL</li>
+                    <li>Analyse prédictive</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="container">
+        <div class="section-title" data-reveal>
+            <h2>Expériences</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="timeline">
+            <!-- Calyps -->
+            <div class="timeline-item" data-reveal>
+                <div class="timeline-content">
+                    <div class="date">Août 2023 - Présent</div>
+                    <h3>Développeur Fullstack</h3>
+                    <div class="company">Calyps - Portfolio Prédictif</div>
+                    <p>Développement d'une plateforme d'analyse intégrant des modèles IA avancés.</p>
+                    
+                    <div class="project-box">
+                        <h4 style="color: var(--secondary); margin-bottom: 0.5rem;">Projet Phare : TourIA (touria.ch)</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-dim);">Plateforme de prédiction des flux touristiques. Pipelines ETL automatisés (+10 sources), optimisation de notebooks IA (Prophet, RAG), et développement d'APIs NestJS sécurisées.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EY / Delta Audit -->
+            <div class="timeline-item" data-reveal>
+                <div class="timeline-content">
+                    <div class="date">2017 - 2022</div>
+                    <h3>Auditeur Financier & Systèmes</h3>
+                    <div class="company">EY Madagascar & Delta Audit</div>
+                    <p>Contrôle de la fiabilité des données et optimisation des processus financiers. Cette expérience m'a apporté une rigueur analytique indispensable au développement logiciel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="container">
+        <div class="section-title" data-reveal>
+            <h2>Formation</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            <div class="skill-card glass" data-reveal>
+                <div class="date" style="color: var(--secondary); font-weight: 700; margin-bottom: 1rem;">2022 - En cours</div>
+                <h3>ITUniversity</h3>
+                <p>Licence en Informatique</p>
+            </div>
+            
+            <div class="skill-card glass" data-reveal>
+                <div class="date" style="color: var(--secondary); font-weight: 700; margin-bottom: 1rem;">2013 - 2017</div>
+                <h3>IAE Poitiers / INSCAE</h3>
+                <p>Double Master en Audit et Contrôle de Gestion</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container" style="text-align: center;">
+        <div class="section-title" data-reveal>
+            <h2>Discutons de votre projet</h2>
+            <div class="underline" style="margin: 0 auto;"></div>
+        </div>
+        
+        <div class="glass" style="max-width: 600px; margin: 0 auto; padding: 3rem;" data-reveal>
+            <p style="margin-bottom: 2rem;">Je suis ouvert aux opportunités en tant que développeur Fullstack, particulièrement sur des projets innovants mêlant IA et Web.</p>
+            <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                <a href="mailto:msamiandrisoa@gmail.com" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                    <i class="fas fa-envelope" style="margin-right: 10px;"></i> msamiandrisoa@gmail.com
+                </a>
+                <a href="tel:+261376053792" style="color: var(--text-main); text-decoration: none;">
+                    <i class="fas fa-phone" style="color: var(--primary); margin-right: 10px;"></i> +261 37 60 537 92
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Marcello Samiandrisoa. Construit avec passion.</p>
+            <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem;">
+                <a href="#" style="color: var(--text-dim); transition: color 0.3s;"><i class="fab fa-github fa-lg"></i></a>
+                <a href="#" style="color: var(--text-dim); transition: color 0.3s;"><i class="fab fa-linkedin fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
