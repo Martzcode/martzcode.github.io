@@ -1,27 +1,48 @@
 :root {
-  /* Light Mode (Default) */
-  --primary: #4facfe;
-  --secondary: #00f2fe;
-  --bg-main: #ffffff;
-  --bg-card: rgba(0, 0, 0, 0.03);
-  --text-main: #1a1a1a;
-  --text-dim: #555555;
-  --accent: #f093fb;
-  --glass-border: rgba(0, 0, 0, 0.1);
+  /* Light Mode (Default) - Professional & Soft */
+  --primary: #2563eb;
+  /* Deep Blue */
+  --secondary: #3b82f6;
+  /* Medium Blue */
+  --bg-main: #f8fafc;
+  /* Soft White/Grey */
+  --bg-card: #ffffff;
+  /* Pure White */
+  --text-main: #1e293b;
+  /* Slate Dark */
+  --text-dim: #64748b;
+  /* Slate Medium */
+  --accent: #8b5cf6;
+  /* Violet */
+  --glass-border: rgba(0, 0, 0, 0.05);
   --font-main: 'Outfit', sans-serif;
-  --nav-bg: rgba(255, 255, 255, 0.8);
+  --nav-bg: rgba(248, 250, 252, 0.85);
+  --btn-text: #ffffff;
+  --badge-bg: rgba(37, 99, 235, 0.08);
+  --timeline-line: #e2e8f0;
 }
 
 body.dark-mode {
-  /* Dark Mode */
-  --primary: #00f2fe;
-  --secondary: #4facfe;
-  --bg-main: #0a0a0c;
-  --bg-card: rgba(255, 255, 255, 0.03);
-  --text-main: #e0e0e0;
-  --text-dim: #a0a0a0;
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --nav-bg: rgba(10, 10, 12, 0.8);
+  /* Dark Mode - Tech & Modern */
+  --primary: #38bdf8;
+  /* Sky Blue */
+  --secondary: #0ea5e9;
+  /* Ocean Blue */
+  --bg-main: #0f172a;
+  /* Deep Midnight */
+  --bg-card: rgba(30, 41, 59, 0.5);
+  /* Slate Blue Transparent */
+  --text-main: #f1f5f9;
+  /* Near White */
+  --text-dim: #94a3b8;
+  /* Slate Soft */
+  --accent: #a78bfa;
+  /* Light Violet */
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --nav-bg: rgba(15, 23, 42, 0.85);
+  --btn-text: #0f172a;
+  --badge-bg: rgba(56, 189, 248, 0.1);
+  --timeline-line: #1e293b;
 }
 
 * {
@@ -82,6 +103,20 @@ nav {
   align-items: center;
 }
 
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
 .theme-toggle {
   background: var(--primary);
   color: #fff;
@@ -139,9 +174,9 @@ nav {
 .badge {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: rgba(79, 172, 254, 0.1);
-  border: 1px solid var(--secondary);
-  color: var(--secondary);
+  background: var(--badge-bg);
+  border: 1px solid var(--primary);
+  color: var(--primary);
   border-radius: 50px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -180,14 +215,14 @@ h1 {
 }
 
 .btn-primary {
-  background: linear-gradient(45deg, var(--secondary), var(--primary));
-  color: #000;
-  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: var(--btn-text);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
 /* Section Common */
@@ -267,7 +302,7 @@ section {
   top: 0;
   width: 2px;
   height: 100%;
-  background: var(--glass-border);
+  background: var(--timeline-line);
 }
 
 .timeline-item {
@@ -307,7 +342,7 @@ section {
 }
 
 .project-box {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--bg-main);
   padding: 1.5rem;
   border-radius: 12px;
   margin-top: 1rem;
