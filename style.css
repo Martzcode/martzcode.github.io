@@ -166,7 +166,6 @@ section {
   flex-direction: column;
   justify-content: center;
   padding: 80px 2rem 60px;
-  /* Optimized transitions for performance */
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   opacity: 0.2;
   transform: translateY(10px);
@@ -372,8 +371,14 @@ section.active-focus [data-reveal].active {
   }
 }
 
-/* macOS Cursors - Fix for persistent coverage */
-* {
+/* macOS Cursors - Final Implementation */
+html,
+body,
+nav,
+#scroll-container,
+section,
+.container,
+.glass {
   cursor: url('assets/cursors/default.png') 20 14, auto !important;
 }
 
@@ -383,12 +388,32 @@ button,
 .theme-toggle,
 .hamburger,
 [role="button"],
-a *,
-button *,
-.nav-menu a,
-footer a {
+.nav-menu a {
   cursor: url('assets/cursors/pointer.png') 26 16, pointer !important;
 }
-h1, h2, h3, h4, h5, h6, p, li, span, code, pre, label {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+span,
+code,
+pre,
+label {
   cursor: url('assets/cursors/text.png') 33 32, text !important;
+}
+
+/* Completely Disable Custom Cursor for Footer */
+footer,
+footer * {
+  cursor: auto !important;
+}
+
+a *,
+button * {
+  cursor: inherit !important;
 }
