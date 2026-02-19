@@ -371,3 +371,24 @@ section.active-focus [data-reveal].active {
     text-align: center;
   }
 }
+
+/* macOS Cursors - Fix for persistent coverage */
+* {
+  cursor: url('assets/cursors/default.png') 20 14, auto !important;
+}
+
+a,
+button,
+.btn,
+.theme-toggle,
+.hamburger,
+[role="button"],
+a *,
+button *,
+.nav-menu a,
+footer a {
+  cursor: url('assets/cursors/pointer.png') 26 16, pointer !important;
+}
+h1, h2, h3, h4, h5, h6, p, li, span, code, pre, label {
+  cursor: url('assets/cursors/text.png') 33 32, text !important;
+}
