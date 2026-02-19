@@ -39,36 +39,55 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// Scroll Reveal Animation
-const revealElements = document.querySelectorAll('[data-reveal]');
+// Intersection Observer for Section Focus & Internal Reveal
+const scrollContainer = document.getElementById('scroll-container');
 
-const scrollReveal = () => {
-    for (let i = 0; i < revealElements.length; i++) {
-        const elementTop = revealElements[i].getBoundingClientRect().top;
-        const revealPoint = 150;
+const observerOptions = {
+    root: scrollContainer, // Observe relative to the snap container
+    rootMargin: '0px',
+    threshold: 0.5 // Trigger when section is mostly visible
+};
 
-        if (elementTop < window.innerHeight - revealPoint) {
-            revealElements[i].classList.add('active');
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Activate Focus
+            entry.target.classList.add('active-focus');
+
+            // Trigger internal reveals
+            const reveals = entry.target.querySelectorAll('[data-reveal]');
+            reveals.forEach(el => el.classList.add('active'));
+        } else {
+            // Deactivate Focus
+            entry.target.classList.remove('active-focus');
         }
-    }
-}
+    });
+}, observerOptions);
 
-window.addEventListener('scroll', scrollReveal);
-
-// Initial call to reveal elements already in view
-document.addEventListener('DOMContentLoaded', () => {
-    scrollReveal();
+// Initial observations
+document.querySelectorAll('section').forEach(section => {
+    sectionObserver.observe(section);
 });
 
-// Smooth scroll for navigation links
+// Smooth scroll for navigation links - Fixed for Scroll Snap Container
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+
         if (target) {
-            target.scrollIntoView({
+            // In a snap container, we scroll the container itself
+            scrollContainer.scrollTo({
+                top: target.offsetTop,
                 behavior: 'smooth'
             });
+
+            // On mobile, close menu
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                menuIcon.classList.replace('fa-times', 'fa-bars');
+            }
         }
     });
 });
