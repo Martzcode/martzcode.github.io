@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -20,233 +20,350 @@
     <!-- Devicon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'var(--primary)',
+                        secondary: 'var(--secondary)',
+                        'bg-main': 'var(--bg-main)',
+                        'bg-card': 'var(--bg-card)',
+                        'text-main': 'var(--text-main)',
+                        'text-dim': 'var(--text-dim)',
+                        'border-color': 'var(--border)',
+                    },
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="font-outfit antialiased bg-bg-main text-text-main transition-colors duration-400">
 
     <!-- Navigation -->
-    <nav>
-        <div class="container nav-container">
-            <div class="logo">MS.</div>
+    <nav
+        class="fixed top-0 w-full py-6 z-[1000] bg-bg-main/85 backdrop-blur-md border-b border-border-color transition-all duration-300">
+        <div class="container mx-auto px-8 flex justify-between items-center max-w-[1100px]">
+            <div
+                class="logo font-extrabold text-[1.2rem] bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                MS.
+            </div>
 
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#experience">Expériences</a></li>
-                <li><a href="#education">Formation</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="nav-menu hidden md:flex gap-10 list-none transition-all duration-300" id="nav-menu">
+                <li><a href="#skills"
+                        class="font-medium text-[0.95rem] hover:text-primary transition-colors">Compétences</a></li>
+                <li><a href="#experience"
+                        class="font-medium text-[0.95rem] hover:text-primary transition-colors">Expériences</a></li>
+                <li><a href="#education"
+                        class="font-medium text-[0.95rem] hover:text-primary transition-colors">Formation</a></li>
+                <li><a href="#contact"
+                        class="font-medium text-[0.95rem] hover:text-primary transition-colors">Contact</a></li>
             </ul>
 
-            <div class="nav-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Basculer le mode">
+            <div class="flex items-center gap-4">
+                <button
+                    class="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-primary text-white dark:text-[#0f172a]"
+                    id="theme-toggle" aria-label="Basculer le mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu">
+                <button class="md:hidden text-2xl" id="hamburger" aria-label="Ouvrir le menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div id="mobile-nav"
+        class="fixed inset-0 bg-bg-main/95 z-[999] opacity-0 pointer-events-none transition-all duration-300 flex flex-col items-center justify-center gap-8 md:hidden">
+        <a href="#skills" class="text-2xl font-semibold hover:text-primary transition-colors">Compétences</a>
+        <a href="#experience" class="text-2xl font-semibold hover:text-primary transition-colors">Expériences</a>
+        <a href="#education" class="text-2xl font-semibold hover:text-primary transition-colors">Formation</a>
+        <a href="#contact" class="text-2xl font-semibold hover:text-primary transition-colors">Contact</a>
+    </div>
+
     <main id="scroll-container">
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <!-- <span class="badge">Disponible pour de nouveaux défis</span> -->
-                    <h1>Marcello Samiandrisoa</h1>
-                    <p>Développeur Fullstack passionné par la création d'applications web modernes, l'analyse de données
-                        et
-                        l'intelligence artificielle.</p>
-                    <div class="hero-btns">
-                        <a href="#contact" class="btn btn-primary">Me contacter</a>
-                        <a href="#experience" class="btn btn-outline">Voir mes
-                            travaux <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i></a>
+        <section
+            class="min-h-screen flex flex-col justify-center px-8 transition-all duration-300 opacity-20 translate-y-2.5 active-focus:opacity-100 active-focus:translate-y-0">
+            <div class="container mx-auto max-w-[1100px]">
+                <div class="max-w-3xl">
+                    <h1
+                        class="text-6xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-text-main to-primary bg-clip-text text-transparent">
+                        Marcello Samiandrisoa
+                    </h1>
+                    <p class="text-[1.2rem] text-text-dim mb-8 leading-relaxed">
+                        Développeur Fullstack passionné par la création d'applications web modernes.
+                    </p>
+                    <div class="flex flex-wrap gap-6">
+                        <a href="#contact"
+                            class="px-8 py-3 bg-primary text-white dark:text-[#0f172a] rounded-xl font-semibold transition hover:-translate-y-1 hover:shadow-lg active:scale-95">
+                            Me contacter
+                        </a>
+                        <a href="#experience"
+                            class="px-8 py-3 bg-white/5 dark:bg-bg-card/10 text-text-main border border-border-color rounded-xl font-semibold transition hover:-translate-y-1 hover:shadow-lg active:scale-95 flex items-center gap-2">
+                            Voir mes travaux <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="container">
-            <div class="section-title" data-reveal>
-                <h2>Compétences</h2>
-                <div class="underline"></div>
-            </div>
+        <section id="skills"
+            class="min-h-screen flex flex-col justify-center px-8 transition-all duration-300 opacity-20 translate-y-2.5 active-focus:opacity-100 active-focus:translate-y-0">
+            <div class="container mx-auto max-w-[1100px]">
+                <div class="mb-12" data-reveal>
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-2">Compétences</h2>
+                    <div class="w-12 h-1 bg-primary rounded-full"></div>
+                </div>
 
-            <div class="skills-grid">
-                <div class="skill-card glass" data-reveal>
-                    <h3><i class="fas fa-code"></i> Langages</h3>
-                    <div class="skill-icons">
-                        <div class="icon-item" title="Java">
-                            <i class="devicon-java-plain"></i>
-                            <span>Java</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-8 rounded-[20px] bg-bg-card backdrop-blur-md border border-border-color transition-all duration-300"
+                        data-reveal>
+                        <h3 class="text-xl font-bold text-primary mb-2 text-center">
+                            <i class="fas fa-code mr-2"></i> Langages
+                        </h3>
+                        <div class="flex flex-wrap justify-center gap-6 py-4">
+                            <div class="flex flex-col items-center gap-3 w-20 transition hover:-translate-y-2 group"
+                                title="Java">
+                                <i
+                                    class="devicon-java-plain text-[2.8rem] text-text-dim transition-colors group-hover:text-primary"></i>
+                                <span
+                                    class="text-xs font-semibold text-text-dim group-hover:text-primary transition-colors">Java</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-3 w-20 transition hover:-translate-y-2 group"
+                                title="NodeJS">
+                                <i
+                                    class="devicon-nodejs-plain text-[2.8rem] text-text-dim transition-colors group-hover:text-primary"></i>
+                                <span
+                                    class="text-xs font-semibold text-text-dim group-hover:text-primary transition-colors">NodeJS</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-3 w-20 transition hover:-translate-y-2 group"
+                                title="TypeScript">
+                                <i
+                                    class="devicon-typescript-plain text-[2.8rem] text-text-dim transition-colors group-hover:text-primary"></i>
+                                <span
+                                    class="text-xs font-semibold text-text-dim group-hover:text-primary transition-colors">TypeScript</span>
+                            </div>
                         </div>
-                        <div class="icon-item" title="NodeJS">
-                            <i class="devicon-nodejs-plain"></i>
-                            <span>NodeJS</span>
+                    </div>
+
+                    <div class="p-8 rounded-[20px] bg-bg-card backdrop-blur-md border border-border-color transition-all duration-300"
+                        data-reveal>
+                        <h3 class="text-xl font-bold text-primary mb-2 text-center">
+                            <i class="fas fa-layer-group mr-2"></i> Frameworks
+                        </h3>
+                        <div class="flex flex-wrap justify-center gap-6 py-4">
+                            <div class="flex flex-col items-center gap-3 w-20 transition hover:-translate-y-2 group"
+                                title="Spring Boot">
+                                <i
+                                    class="devicon-spring-plain text-[2.8rem] text-text-dim transition-colors group-hover:text-primary"></i>
+                                <span
+                                    class="text-xs font-semibold text-text-dim group-hover:text-primary transition-colors">Spring</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-3 w-20 transition hover:-translate-y-2 group"
+                                title="NestJS">
+                                <i
+                                    class="devicon-nestjs-plain text-[2.8rem] text-text-dim transition-colors group-hover:text-primary"></i>
+                                <span
+                                    class="text-xs font-semibold text-text-dim group-hover:text-primary transition-colors">NestJS</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-3 w-20 transition hover:-translate-y-2 group"
+                                title="React">
+                                <i
+                                    class="devicon-react-original text-[2.8rem] text-text-dim transition-colors group-hover:text-primary"></i>
+                                <span
+                                    class="text-xs font-semibold text-text-dim group-hover:text-primary transition-colors">React</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-3 w-20 transition hover:-translate-y-2 group"
+                                title="Angular">
+                                <i
+                                    class="devicon-angularjs-plain text-[2.8rem] text-text-dim transition-colors group-hover:text-primary"></i>
+                                <span
+                                    class="text-xs font-semibold text-text-dim group-hover:text-primary transition-colors">Angular</span>
+                            </div>
                         </div>
-                        <div class="icon-item" title="TypeScript">
-                            <i class="devicon-typescript-plain"></i>
-                            <span>TypeScript</span>
+                    </div>
+
+                    <div class="p-8 rounded-[20px] bg-bg-card backdrop-blur-md border border-border-color transition-all duration-300"
+                        data-reveal>
+                        <h3 class="text-xl font-bold text-primary mb-2 text-center">
+                            <i class="fas fa-tools mr-2"></i> Outils & Cloud
+                        </h3>
+                        <div class="flex flex-wrap justify-center gap-6 py-4">
+                            <div class="flex flex-col items-center gap-3 w-20 transition hover:-translate-y-2 group"
+                                title="GCP">
+                                <i
+                                    class="devicon-googlecloud-plain text-[2.8rem] text-text-dim transition-colors group-hover:text-primary"></i>
+                                <span
+                                    class="text-xs font-semibold text-text-dim group-hover:text-primary transition-colors">GCP</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-3 w-20 transition hover:-translate-y-2 group"
+                                title="Docker">
+                                <i
+                                    class="devicon-docker-plain text-[2.8rem] text-text-dim transition-colors group-hover:text-primary"></i>
+                                <span
+                                    class="text-xs font-semibold text-text-dim group-hover:text-primary transition-colors">Docker</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-3 w-20 transition hover:-translate-y-2 group"
+                                title="PostgreSQL">
+                                <i
+                                    class="devicon-postgresql-plain text-[2.8rem] text-text-dim transition-colors group-hover:text-primary"></i>
+                                <span
+                                    class="text-xs font-semibold text-text-dim group-hover:text-primary transition-colors">PostgreSQL</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-3 w-20 transition hover:-translate-y-2 group"
+                                title="GitHub">
+                                <i
+                                    class="devicon-github-original text-[2.8rem] text-text-dim transition-colors group-hover:text-primary"></i>
+                                <span
+                                    class="text-xs font-semibold text-text-dim group-hover:text-primary transition-colors">GitHub</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="skill-card glass" data-reveal>
-                    <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
-                    <div class="skill-icons">
-                        <div class="icon-item" title="Spring Boot">
-                            <i class="devicon-spring-plain"></i>
-                            <span>Spring</span>
-                        </div>
-                        <div class="icon-item" title="NestJS">
-                            <i class="devicon-nestjs-plain"></i>
-                            <span>NestJS</span>
-                        </div>
-                        <div class="icon-item" title="React">
-                            <i class="devicon-react-original"></i>
-                            <span>React</span>
-                        </div>
-                        <div class="icon-item" title="Angular">
-                            <i class="devicon-angularjs-plain"></i>
-                            <span>Angular</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-card glass" data-reveal>
-                    <h3><i class="fas fa-tools"></i> Outils & Cloud</h3>
-                    <div class="skill-icons">
-                        <div class="icon-item" title="GCP">
-                            <i class="devicon-googlecloud-plain"></i>
-                            <span>GCP</span>
-                        </div>
-                        <div class="icon-item" title="Docker">
-                            <i class="devicon-docker-plain"></i>
-                            <span>Docker</span>
-                        </div>
-                        <div class="icon-item" title="PostgreSQL">
-                            <i class="devicon-postgresql-plain"></i>
-                            <span>PostgreSQL</span>
-                        </div>
-                        <div class="icon-item" title="GitHub">
-                            <i class="devicon-github-original"></i>
-                            <span>GitHub</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="container">
-            <div class="section-title" data-reveal>
-                <h2>Expériences</h2>
-                <div class="underline"></div>
-            </div>
-
-            <div class="timeline">
-                <!-- Calyps -->
-                <div class="timeline-item" data-reveal>
-                    <div class="timeline-content">
-                        <div class="date">Août 2025 - Présent</div>
-                        <h3>Développeur Fullstack</h3>
-                        <div class="company">Calyps - Portfolio Prédictif</div>
-                        <p>Développement d'une plateforme d'analyse intégrant des modèles IA avancés.</p>
-
-                        <div class="project-box">
-                            <h4 style="color: var(--secondary); margin-bottom: 0.5rem;">Projet Phare : TourIA
-                                (touria.ch)
-                            </h4>
-                            <p style="font-size: 0.95rem; color: var(--text-dim);">Plateforme de prédiction des flux
-                                touristiques. Pipelines ETL automatisés (+10 sources), optimisation de notebooks IA
-                                (Prophet, RAG), et développement d'APIs NestJS sécurisées.</p>
-                        </div>
-                    </div>
+        <section id="experience"
+            class="min-h-screen flex flex-col justify-center px-8 transition-all duration-300 opacity-20 translate-y-2.5 active-focus:opacity-100 active-focus:translate-y-0">
+            <div class="container mx-auto max-w-[1100px]">
+                <div class="mb-12" data-reveal>
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-2">Expériences</h2>
+                    <div class="w-12 h-1 bg-primary rounded-full"></div>
                 </div>
 
-                <!-- EY / Delta Audit -->
-                <div class="timeline-item" data-reveal>
-                    <div class="timeline-content">
-                        <div class="date">2017 - 2022</div>
-                        <h3>Auditeur Financier & Systèmes</h3>
-                        <div class="company">EY Madagascar & Delta Audit</div>
-                        <p>Contrôle de la fiabilité des données et optimisation des processus financiers. Cette
-                            expérience
-                            m'a apporté une rigueur analytique indispensable au développement logiciel.</p>
+                <div class="relative pl-8 border-l-2 border-border-color space-y-12">
+                    <!-- Calyps -->
+                    <div class="relative" data-reveal>
+                        <div
+                            class="absolute -left-[35px] top-1 w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-bg-main transition-all duration-300">
+                        </div>
+                        <div class="space-y-2">
+                            <div class="text-[0.9rem] font-bold text-secondary uppercase tracking-wider">Août 2025 -
+                                Présent</div>
+                            <h3 class="text-2xl font-bold">Développeur Fullstack</h3>
+                            <div class="text-lg font-medium opacity-80">Calyps - Portfolio Prédictif</div>
+                            <p class="text-text-dim">Développement d'une plateforme d'analyse de données avancée.</p>
+
+                            <div class="p-4 bg-bg-card rounded-xl mt-4 border border-border-color">
+                                <h4 class="text-secondary font-bold mb-2">Projet Phare : TourIA (touria.ch)</h4>
+                                <p class="text-[0.95rem] text-text-dim">
+                                    Plateforme de prédiction des flux touristiques. Pipelines ETL automatisés (+10
+                                    sources) et développement d'APIs NestJS sécurisées.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EY / Delta Audit -->
+                    <div class="relative" data-reveal>
+                        <div
+                            class="absolute -left-[35px] top-1 w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-bg-main transition-all duration-300">
+                        </div>
+                        <div class="space-y-2">
+                            <div class="text-[0.9rem] font-bold text-secondary uppercase tracking-wider">2017 - 2022
+                            </div>
+                            <h3 class="text-2xl font-bold">Auditeur Financier & Systèmes</h3>
+                            <div class="text-lg font-medium opacity-80">EY Madagascar & Delta Audit</div>
+                            <p class="text-text-dim">
+                                Contrôle de la fiabilité des données et optimisation des processus financiers. Cette
+                                expérience m'a apporté une rigueur analytique indispensable au développement logiciel.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Education Section -->
-        <section id="education" class="container">
-            <div class="section-title" data-reveal>
-                <h2>Formation</h2>
-                <div class="underline"></div>
-            </div>
-
-            <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                <div class="skill-card glass" data-reveal>
-                    <div class="edu-header">
-                        <img src="https://www.ituniversity-mg.com/page/wp-content/uploads/2021/08/ITU_logo_MAJ_negatif_sans_fond.png"
-                            alt="IT University Logo" class="edu-logo">
-                        <h3>ITUniversity</h3>
-                    </div>
-                    <div class="date"
-                        style="color: var(--secondary); font-weight: 700; text-align: center; margin-bottom: 1rem;">2022
-                        - En cours</div>
-                    <p style="text-align: center;">Licence en Informatique</p>
+        <section id="education"
+            class="min-h-screen flex flex-col justify-center px-8 transition-all duration-300 opacity-20 translate-y-2.5 active-focus:opacity-100 active-focus:translate-y-0">
+            <div class="container mx-auto max-w-[1100px]">
+                <div class="mb-12" data-reveal>
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-2">Formation</h2>
+                    <div class="w-12 h-1 bg-primary rounded-full"></div>
                 </div>
 
-                <div class="skill-card glass" data-reveal>
-                    <div class="edu-header">
-                        <img src="https://iae.univ-poitiers.fr/wp-content/uploads/sites/66/2019/05/logoiae.png.pagespeed.ce.Ho7NLPyHaW.png"
-                            alt="IAE Poitiers Logo" class="edu-logo">
-                        <h3>IAE Poitiers / INSCAE</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-8 rounded-[20px] bg-bg-card backdrop-blur-md border border-border-color transition-all duration-300"
+                        data-reveal>
+                        <div class="flex flex-col items-center gap-4 mb-4 text-center">
+                            <img src="https://www.ituniversity-mg.com/page/wp-content/uploads/2021/08/ITU_logo_MAJ_negatif_sans_fond.png"
+                                alt="IT University Logo"
+                                class="itu-logo h-[60px] w-auto transition-transform hover:scale-105">
+                            <h3 class="text-xl font-bold text-primary uppercase">ITUniversity</h3>
+                        </div>
+                        <div class="text-center font-bold text-secondary mb-4">2022 - En cours</div>
+                        <p class="text-center text-text-dim">Licence en Informatique</p>
                     </div>
-                    <div class="date"
-                        style="color: var(--secondary); font-weight: 700; text-align: center; margin-bottom: 1rem;">2013
-                        - 2017</div>
-                    <p style="text-align: center;">Master en Comptabilité, Contrôle et Audit</p>
+
+                    <div class="p-8 rounded-[20px] bg-bg-card backdrop-blur-md border border-border-color transition-all duration-300"
+                        data-reveal>
+                        <div class="flex flex-col items-center gap-4 mb-4 text-center">
+                            <img src="https://iae.univ-poitiers.fr/wp-content/uploads/sites/66/2019/05/logoiae.png.pagespeed.ce.Ho7NLPyHaW.png"
+                                alt="IAE Poitiers Logo"
+                                class="iae-logo h-[60px] w-auto transition-transform hover:scale-105">
+                            <h3 class="text-xl font-bold text-primary uppercase">IAE Poitiers / INSCAE</h3>
+                        </div>
+                        <div class="text-center font-bold text-secondary mb-4">2013 - 2017</div>
+                        <p class="text-center text-text-dim">Master en Comptabilité, Contrôle et Audit</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="container" style="text-align: center;">
-            <div class="section-title" data-reveal>
-                <h2>Discutons de votre projet</h2>
-                <div class="underline" style="margin: 0 auto;"></div>
-            </div>
+        <section id="contact"
+            class="min-h-screen flex flex-col justify-center px-8 text-center transition-all duration-300 opacity-20 translate-y-2.5 active-focus:opacity-100 active-focus:translate-y-0">
+            <div class="container mx-auto max-w-[1100px]">
+                <div class="mb-12" data-reveal>
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-2">Discutons de votre projet</h2>
+                    <div class="w-12 h-1 bg-primary rounded-full mx-auto"></div>
+                </div>
 
-            <div class="glass" style="max-width: 600px; margin: 0 auto; padding: 3rem;" data-reveal>
-                <p style="margin-bottom: 2rem;">Je suis ouvert aux opportunités en tant que développeur Fullstack,
-                    particulièrement sur des projets innovants mêlant IA et Web.</p>
-                <div style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center;">
-                    <a href="mailto:msamiandrisoa@gmail.com" class="btn btn-primary"
-                        style="width: 100%; justify-content: center;">
-                        <i class="fas fa-envelope" style="margin-right: 10px;"></i> msamiandrisoa@gmail.com
-                    </a>
-                    <a href="tel:+261376053792" class="btn btn-outline" style="width: 100%; justify-content: center;">
-                        <i class="fas fa-phone" style="margin-right: 10px;"></i> +261 37 60 537 92
-                    </a>
+                <div class="max-w-2xl mx-auto p-12 rounded-[20px] bg-bg-card backdrop-blur-md border border-border-color"
+                    data-reveal>
+                    <p class="text-[1.1rem] text-text-dim mb-10">
+                        Je suis ouvert aux opportunités en tant que développeur Fullstack, particulièrement sur des
+                        projets innovants.
+                    </p>
+                    <div class="flex flex-col gap-6 items-center">
+                        <a href="mailto:msamiandrisoa@gmail.com"
+                            class="w-full flex justify-center items-center gap-3 px-8 py-4 bg-primary text-white rounded-xl font-bold transition hover:-translate-y-1 hover:shadow-lg active:scale-95">
+                            <i class="fas fa-envelope"></i> msamiandrisoa@gmail.com
+                        </a>
+                        <a href="tel:+261376053792"
+                            class="w-full flex justify-center items-center gap-3 px-8 py-4 bg-white/5 dark:bg-bg-card/10 text-text-main border border-border-color rounded-xl font-bold transition hover:-translate-y-1 hover:shadow-lg active:scale-95">
+                            <i class="fas fa-phone"></i> +261 37 60 537 92
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <footer>
-        <div class="container footer-container">
+    <footer
+        class="fixed bottom-0 w-full py-4 z-[1000] bg-bg-main/85 backdrop-blur-md border-t border-border-color transition-all duration-300">
+        <div
+            class="container mx-auto px-8 flex flex-col md:flex-row justify-between items-center max-w-[1100px] text-text-dim text-sm">
             <p>&copy; 2026 Marcello Samiandrisoa.</p>
-            <div class="footer-socials">
-                <a href="https://github.com/martzcode" target="_blank" aria-label="GitHub"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/marcello-samiandrisoa" target="_blank" aria-label="LinkedIn"><i
-                        class="fab fa-linkedin"></i></a>
+            <div class="flex gap-6 mt-2 md:mt-0">
+                <a href="https://github.com/martzcode" target="_blank" aria-label="GitHub"
+                    class="hover:text-primary transition-colors text-lg"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/marcello-samiandrisoa" target="_blank" aria-label="LinkedIn"
+                    class="hover:text-primary transition-colors text-lg"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
