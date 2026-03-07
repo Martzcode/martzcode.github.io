@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
     <meta name="description"
         content="Portfolio de Marcello Samiandrisoa - Développeur Fullstack spécialisé en Java, NodeJS, React et Angular.">
     <title>Marcello Samiandrisoa | Développeur Fullstack</title>
@@ -109,9 +111,11 @@
     <nav
         class="fixed top-0 w-full py-6 z-[1000] bg-bg-main/85 backdrop-blur-md border-b border-border-color transition-all duration-300">
         <div class="container mx-auto px-8 flex justify-between items-center max-w-[1100px]">
-            <div
-                class="logo font-extrabold text-[1.2rem] bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                MS.
+            <div class="logo font-extrabold text-[1.3rem] flex items-center gap-2">
+                <span class="w-6 h-6 bg-primary inline-block"
+                    style="mask: url('assets/icons/terminal-icon.svg') no-repeat center / contain; -webkit-mask: url('assets/icons/terminal-icon.svg') no-repeat center / contain;"
+                    aria-hidden="true"></span>
+                <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Martzcode</span>
             </div>
 
             <ul class="nav-menu hidden md:flex gap-10 list-none transition-all duration-300" id="nav-menu">
@@ -122,7 +126,8 @@
                 <li><a href="#education"
                         class="font-medium text-[0.95rem] hover:text-primary transition-colors">Formation</a></li>
                 <li><a href="#contact"
-                        class="font-medium text-[0.95rem] hover:text-primary transition-colors">Contact</a></li>
+                        class="font-medium text-[0.95rem] hover:text-primary transition-colors">Contact</a>
+                </li>
             </ul>
 
             <div class="flex items-center gap-4">
