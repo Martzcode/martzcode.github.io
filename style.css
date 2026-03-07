@@ -211,8 +211,8 @@ section.active-focus {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .skill-card {
@@ -221,12 +221,94 @@ section.active-focus {
 
 .skill-card h3 {
   color: var(--primary);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.edu-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 
-.skill-card ul {
-  list-style: none;
+.edu-logo {
+  height: 60px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode .edu-logo {
+  filter: brightness(0) invert(1);
+}
+
+/* Exception for ITU logo which is already negative */
+body.dark-mode .edu-logo[src*="ITU_logo"],
+body:not(.dark-mode) .edu-logo[src*="ITU_logo"] {
+  filter: none;
+}
+
+/* Re-applying for ITU in light mode if it's too white */
+body:not(.dark-mode) .edu-logo[src*="ITU_logo"] {
+  filter: brightness(0.2);
+}
+
+.skill-card:hover .edu-logo {
+  transform: scale(1.05);
+}
+
+.skill-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  width: 80px;
+}
+
+.icon-item i {
+  font-size: 2.8rem;
+  transition: all 0.3s ease;
+  color: #475569;
+  /* Darker gray for light mode */
+}
+
+body.dark-mode .icon-item i {
+  color: #f1f5f9;
+  /* Off-white for dark mode */
+}
+
+.icon-item span {
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--text-dim);
+  text-align: center;
+  opacity: 0.8;
+}
+
+.icon-item:hover {
+  transform: translateY(-8px);
+}
+
+.icon-item:hover i {
+  transform: scale(1.1);
+  color: var(--primary) !important;
+}
+
+.icon-item:hover span {
+  color: var(--primary);
+  opacity: 1;
 }
 
 /* Timeline */
