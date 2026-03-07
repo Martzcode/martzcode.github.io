@@ -145,11 +145,21 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-nav"
-        class="fixed inset-0 bg-bg-main/95 z-[1100] opacity-0 pointer-events-none transition-all duration-300 flex flex-col items-center justify-center gap-8 md:hidden">
-        <a href="#skills" class="text-2xl font-semibold hover:text-primary transition-colors">Compétences</a>
-        <a href="#experience" class="text-2xl font-semibold hover:text-primary transition-colors">Expériences</a>
-        <a href="#education" class="text-2xl font-semibold hover:text-primary transition-colors">Formation</a>
-        <a href="#contact" class="text-2xl font-semibold hover:text-primary transition-colors">Contact</a>
+        class="fixed inset-0 bg-bg-main z-[1100] opacity-0 pointer-events-none transition-all duration-500 flex flex-col items-center justify-center gap-6 md:hidden">
+
+        <!-- Subtle background blur for the overlay -->
+        <div class="absolute inset-0 backdrop-blur-xl"></div>
+
+        <div class="relative z-10 flex flex-col items-center gap-6 w-full px-8">
+            <a href="#skills"
+                class="w-full max-w-xs py-4 text-center text-2xl font-bold border border-border-color rounded-2xl bg-bg-card/50 hover:bg-primary hover:text-white transition-all">Compétences</a>
+            <a href="#experience"
+                class="w-full max-w-xs py-4 text-center text-2xl font-bold border border-border-color rounded-2xl bg-bg-card/50 hover:bg-primary hover:text-white transition-all">Expériences</a>
+            <a href="#education"
+                class="w-full max-w-xs py-4 text-center text-2xl font-bold border border-border-color rounded-2xl bg-bg-card/50 hover:bg-primary hover:text-white transition-all">Formation</a>
+            <a href="#contact"
+                class="w-full max-w-xs py-4 text-center text-2xl font-bold border border-border-color rounded-2xl bg-bg-card/50 hover:bg-primary hover:text-white transition-all">Contact</a>
+        </div>
     </div>
 
     <main id="scroll-container">
