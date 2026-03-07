@@ -145,7 +145,7 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-nav"
-        class="fixed inset-0 bg-bg-main/95 z-[999] opacity-0 pointer-events-none transition-all duration-300 flex flex-col items-center justify-center gap-8 md:hidden">
+        class="fixed inset-0 bg-bg-main/95 z-[1100] opacity-0 pointer-events-none transition-all duration-300 flex flex-col items-center justify-center gap-8 md:hidden">
         <a href="#skills" class="text-2xl font-semibold hover:text-primary transition-colors">Compétences</a>
         <a href="#experience" class="text-2xl font-semibold hover:text-primary transition-colors">Expériences</a>
         <a href="#education" class="text-2xl font-semibold hover:text-primary transition-colors">Formation</a>
@@ -159,7 +159,7 @@
             <div class="container mx-auto max-w-[1100px]">
                 <div class="max-w-3xl">
                     <h1
-                        class="text-6xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-text-main to-primary bg-clip-text text-transparent">
+                        class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-text-main to-primary bg-clip-text text-transparent">
                         Marcello Samiandrisoa
                     </h1>
                     <p class="text-[1.2rem] text-text-dim mb-8 leading-relaxed">
@@ -299,49 +299,98 @@
         <!-- Experience Section -->
         <section id="experience"
             class="min-h-screen flex flex-col justify-center px-8 transition-all duration-300 opacity-20 translate-y-2.5 active-focus:opacity-100 active-focus:translate-y-0">
-            <div class="container mx-auto max-w-[1100px]">
-                <div class="mb-12" data-reveal>
-                    <h2 class="text-4xl md:text-5xl font-extrabold mb-2">Expériences</h2>
-                    <div class="w-12 h-1 bg-primary rounded-full"></div>
+            <div class="container mx-auto max-w-[1100px] relative">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6" data-reveal>
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-extrabold mb-2">Expériences</h2>
+                        <div class="w-12 h-1 bg-primary rounded-full"></div>
+                    </div>
+                    <!-- Navigation & Pagination -->
+                    <div class="flex items-center gap-6 pb-2">
+                        <div class="flex gap-2">
+                            <button id="exp-prev"
+                                class="w-10 h-10 rounded-full border border-border-color flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all active:scale-90"
+                                aria-label="Précédent">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button id="exp-next"
+                                class="w-10 h-10 rounded-full border border-border-color flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all active:scale-90"
+                                aria-label="Suivant">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="flex gap-3" id="exp-pagination">
+                            <div
+                                class="w-3.5 h-3.5 rounded-full bg-primary border-2 border-primary transition-all duration-300">
+                            </div>
+                            <div
+                                class="w-3.5 h-3.5 rounded-full bg-transparent border-2 border-primary transition-all duration-300">
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="relative pl-8 border-l-2 border-border-color space-y-12">
+                <!-- Experience Carousel -->
+                <div id="exp-carousel"
+                    class="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-8 pb-8 -mx-4 px-4">
                     <!-- Calyps -->
-                    <div class="relative" data-reveal>
+                    <div class="min-w-full snap-center" data-reveal>
                         <div
-                            class="absolute -left-[35px] top-1 w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-bg-main transition-all duration-300">
-                        </div>
-                        <div class="space-y-2">
-                            <div class="text-[0.9rem] font-bold text-secondary uppercase tracking-wider">Août 2025 -
-                                Présent</div>
-                            <h3 class="text-2xl font-bold">Développeur Fullstack</h3>
-                            <div class="text-lg font-medium opacity-80">Calyps - Portfolio Prédictif</div>
-                            <p class="text-text-dim">Développement d'une plateforme d'analyse de données avancée.</p>
-
-                            <div class="p-4 bg-bg-card rounded-xl mt-4 border border-border-color">
-                                <h4 class="text-secondary font-bold mb-2">Projet Phare : TourIA (touria.ch)</h4>
-                                <p class="text-[0.95rem] text-text-dim">
-                                    Plateforme de prédiction des flux touristiques. Pipelines ETL automatisés (+10
-                                    sources) et développement d'APIs NestJS sécurisées.
+                            class="bg-bg-card backdrop-blur-md border border-border-color rounded-[32px] p-8 md:p-12 h-full flex flex-col md:flex-row gap-8 hover:border-primary/30 transition-colors duration-500">
+                            <div class="md:w-1/3 space-y-4">
+                                <div
+                                    class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-sm">
+                                    Août 2025 - Présent</div>
+                                <h3 class="text-3xl md:text-4xl font-extrabold leading-tight">Développeur Fullstack</h3>
+                                <div class="text-xl font-medium text-secondary">Calyps - Portfolio Prédictif</div>
+                            </div>
+                            <div class="md:w-2/3 space-y-6">
+                                <p class="text-lg md:text-xl text-text-dim leading-relaxed">
+                                    Développement d'une plateforme d'analyse de données avancée intégrant des solutions
+                                    prédictives pour le secteur de la santé et du tourisme.
                                 </p>
+                                <div class="p-6 bg-primary/5 rounded-2xl border border-primary/10">
+                                    <h4 class="text-lg font-bold mb-3 flex items-center gap-2">
+                                        <i class="fas fa-rocket text-primary"></i> Projet Phare : TourIA (touria.ch)
+                                    </h4>
+                                    <p class="text-text-dim">
+                                        Plateforme de prédiction des flux touristiques. Conception de pipelines ETL
+                                        automatisés (+10 sources) et développement d'APIs NestJS scalables et
+                                        sécurisées.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- EY / Delta Audit -->
-                    <div class="relative" data-reveal>
+                    <div class="min-w-full snap-center" data-reveal>
                         <div
-                            class="absolute -left-[35px] top-1 w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-bg-main transition-all duration-300">
-                        </div>
-                        <div class="space-y-2">
-                            <div class="text-[0.9rem] font-bold text-secondary uppercase tracking-wider">2017 - 2022
+                            class="bg-bg-card backdrop-blur-md border border-border-color rounded-[32px] p-8 md:p-12 h-full flex flex-col md:flex-row gap-8 hover:border-primary/30 transition-colors duration-500">
+                            <div class="md:w-1/3 space-y-4">
+                                <div
+                                    class="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary font-bold text-sm">
+                                    2017 - 2022</div>
+                                <h3 class="text-3xl md:text-4xl font-extrabold leading-tight">Auditeur Financier &
+                                    Systèmes</h3>
+                                <div class="text-xl font-medium text-secondary">EY Madagascar & Delta Audit</div>
                             </div>
-                            <h3 class="text-2xl font-bold">Auditeur Financier & Systèmes</h3>
-                            <div class="text-lg font-medium opacity-80">EY Madagascar & Delta Audit</div>
-                            <p class="text-text-dim">
-                                Contrôle de la fiabilité des données et optimisation des processus financiers. Cette
-                                expérience m'a apporté une rigueur analytique indispensable au développement logiciel.
-                            </p>
+                            <div class="md:w-2/3 space-y-6">
+                                <p class="text-lg md:text-xl text-text-dim leading-relaxed">
+                                    Expertise en audit financier et revue des systèmes d'information pour des clients
+                                    internationaux et locaux.
+                                </p>
+                                <div class="p-6 bg-secondary/5 rounded-2xl border border-secondary/10">
+                                    <h4 class="text-lg font-bold mb-3 flex items-center gap-2">
+                                        <i class="fas fa-chart-line text-secondary"></i> Impact & Méthodologie
+                                    </h4>
+                                    <p class="text-text-dim">
+                                        Contrôle de la fiabilité des données et optimisation des processus financiers
+                                        critiques. Cette expérience m'a apporté une rigueur analytique et une structure
+                                        méthodologique indispensables au développement logiciel de haute qualité.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

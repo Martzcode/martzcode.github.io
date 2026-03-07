@@ -93,3 +93,81 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+// Experience Carousel Navigation Logic
+const expCarousel = document.getElementById('exp-carousel');
+const expDots = document.querySelectorAll('#exp-pagination div');
+const expPrev = document.getElementById('exp-prev');
+const expNext = document.getElementById('exp-next');
+
+if (expCarousel && expDots.length > 0) {
+    // Current Index Tracking
+    let currentIndex = 0;
+
+    // Carousel Scroll Handler for Buttons
+    const scrollCarousel = (index) => {
+        const cardWidth = expCarousel.offsetWidth;
+        expCarousel.scrollTo({
+            left: index * cardWidth,
+            behavior: 'smooth'
+        });
+    };
+
+    if (expPrev) {
+        expPrev.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                scrollCarousel(currentIndex);
+            }
+        });
+    }
+
+    if (expNext) {
+        expNext.addEventListener('click', () => {
+            if (currentIndex < expCarousel.children.length - 1) {
+                currentIndex++;
+                scrollCarousel(currentIndex);
+            }
+        });
+    }
+
+    // Observer to update dots and current index on scroll
+    const carouselObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                currentIndex = Array.from(expCarousel.children).indexOf(entry.target);
+
+                // Update dots
+                expDots.forEach((dot, i) => {
+                    if (i === currentIndex) {
+                        dot.classList.add('bg-primary');
+                        dot.classList.remove('bg-transparent');
+                    } else {
+                        dot.classList.remove('bg-primary');
+                        dot.classList.add('bg-transparent');
+                    }
+                    dot.classList.add('border-primary');
+                });
+
+                // Update button states
+                if (expPrev) expPrev.style.opacity = currentIndex === 0 ? '0.3' : '1';
+                if (expNext) expNext.style.opacity = currentIndex === expCarousel.children.length - 1 ? '0.3' : '1';
+            }
+        });
+    }, {
+        root: expCarousel,
+        threshold: 0.5
+    });
+
+    Array.from(expCarousel.children).forEach(card => {
+        carouselObserver.observe(card);
+    });
+
+    // Fix for Mouse Wheel: allow horizontal wheel to scroll the carousel
+    expCarousel.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+            e.stopPropagation(); // Prevent One Page Scroll from moving vertically
+        }
+    }, { passive: false });
+}
+
+

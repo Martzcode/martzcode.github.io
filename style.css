@@ -64,6 +64,7 @@ body {
 
 #scroll-container {
   height: 100vh;
+  height: 100dvh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -79,7 +80,21 @@ section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   will-change: opacity, transform;
+  padding-top: 100px;
+  padding-bottom: 80px;
+  min-height: 100dvh;
 }
+
+@media (max-width: 768px) {
+  section {
+    padding-top: 80px;
+    padding-bottom: 120px;
+    justify-content: flex-start !important;
+    height: auto !important;
+    min-height: 100dvh;
+  }
+}
+
 
 /* Section Focus & Internal Reveal system */
 section.active-focus {
@@ -156,4 +171,43 @@ footer * {
 a *,
 button * {
   cursor: inherit !important;
+}
+
+/* Utility Classes */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Experience Carousel Fixes */
+#experience .container,
+#exp-carousel,
+#exp-carousel>div {
+  pointer-events: auto !important;
+}
+
+#exp-carousel {
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  nav {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  footer {
+    padding-top: 0.75rem !important;
+    padding-bottom: 2.5rem !important;
+    /* Extra bottom for mobile safe area */
+  }
+
+  .logo span:last-child {
+    font-size: 1.1rem;
+  }
 }
