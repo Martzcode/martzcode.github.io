@@ -1,12 +1,13 @@
 <nav
     class="fixed top-0 w-full py-6 z-[1000] bg-bg-main/85 backdrop-blur-md border-b border-border-color transition-all duration-300">
     <div class="container mx-auto px-8 flex justify-between items-center max-w-[1100px]">
-        <div class="logo font-extrabold text-[1.3rem] flex items-center gap-2">
-            <span class="w-6 h-6 bg-primary inline-block"
+        <a href="#home"
+            class="logo font-extrabold text-[1.3rem] flex items-center gap-2 group transition-all duration-300 hover:scale-105 active:scale-95">
+            <span class="w-6 h-6 bg-primary inline-block transition-transform duration-300 group-hover:rotate-12"
                 style="mask: url('assets/icons/terminal-icon.svg') no-repeat center / contain; -webkit-mask: url('assets/icons/terminal-icon.svg') no-repeat center / contain;"
                 aria-hidden="true"></span>
             <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Martzcode</span>
-        </div>
+        </a>
 
         <ul class="nav-menu hidden md:flex gap-10 list-none transition-all duration-300" id="nav-menu">
             <li><a href="#skills"
