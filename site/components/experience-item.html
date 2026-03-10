@@ -1,0 +1,24 @@
+<div class="min-w-full snap-center" data-reveal>
+    <div
+        class="bg-bg-card backdrop-blur-md border border-border-color rounded-[32px] p-8 md:p-12 h-full flex flex-col md:flex-row gap-8 hover:border-primary/30 transition-colors duration-500">
+        <div class="md:w-1/3 space-y-4">
+            <div class="inline-block px-4 py-1.5 rounded-full {{badgeClass}} font-bold text-sm">
+                {{period}}</div>
+            <h3 class="text-3xl md:text-4xl font-extrabold leading-tight">{{jobTitle}}</h3>
+            <div class="text-xl font-medium text-secondary">{{company}}</div>
+        </div>
+        <div class="md:w-2/3 space-y-6">
+            <p class="text-lg md:text-xl text-text-dim leading-relaxed">
+                {{description}}
+            </p>
+            <div class="p-6 {{highlightClass}} rounded-2xl border {{highlightBorderClass}}">
+                <h4 class="text-lg font-bold mb-3 flex items-center gap-2">
+                    <i class="{{highlightIcon}}"></i> {{highlightTitle}}
+                </h4>
+                <p class="text-text-dim">
+                    {{highlightDescription}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<nav
+    class="fixed top-0 w-full py-6 z-[1000] bg-bg-main/85 backdrop-blur-md border-b border-border-color transition-all duration-300">
+    <div class="container mx-auto px-8 flex justify-between items-center max-w-[1100px]">
+        <div class="logo font-extrabold text-[1.3rem] flex items-center gap-2">
+            <span class="w-6 h-6 bg-primary inline-block"
+                style="mask: url('assets/icons/terminal-icon.svg') no-repeat center / contain; -webkit-mask: url('assets/icons/terminal-icon.svg') no-repeat center / contain;"
+                aria-hidden="true"></span>
+            <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Martzcode</span>
+        </div>
+
+        <ul class="nav-menu hidden md:flex gap-10 list-none transition-all duration-300" id="nav-menu">
+            <li><a href="#skills"
+                    class="font-medium text-[0.95rem] hover:text-primary transition-colors">Compétences</a></li>
+            <li><a href="#experience"
+                    class="font-medium text-[0.95rem] hover:text-primary transition-colors">Expériences</a></li>
+            <li><a href="#education"
+                    class="font-medium text-[0.95rem] hover:text-primary transition-colors">Formation</a></li>
+            <li><a href="#contact" class="font-medium text-[0.95rem] hover:text-primary transition-colors">Contact</a>
+            </li>
+        </ul>
+
+        <div class="flex items-center gap-4">
+            <button
+                class="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-primary text-white dark:text-[#0f172a]"
+                id="theme-toggle" aria-label="Basculer le mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="md:hidden text-2xl" id="hamburger" aria-label="Ouvrir le menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
