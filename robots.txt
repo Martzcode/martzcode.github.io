@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://martzcode.github.io/sitemap.xml
